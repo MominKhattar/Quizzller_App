@@ -26,7 +26,6 @@ class _QuizzlerState extends State<Quizzler> {
   //   true,true
   // ];
 
-  int questionNumber = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +39,7 @@ class _QuizzlerState extends State<Quizzler> {
               flex: 5,
               child: Center(
                 child: Text(
-                  quizebrain.getQuestionText(questionNumber),
+                  quizebrain.getQuestionText(),
                 ),
               ),
             ),
@@ -51,7 +50,7 @@ class _QuizzlerState extends State<Quizzler> {
                     backgroundColor: MaterialStateProperty.all(Colors.green)),
                 onPressed: () {
                   bool correctanswers =
-                      quizebrain.getCorrectAnswer(questionNumber);
+                      quizebrain.getCorrectAnswer();
                   if (correctanswers == true) {
                     print("Your answer is right");
                   } else {
@@ -59,7 +58,7 @@ class _QuizzlerState extends State<Quizzler> {
                   }
 
                   setState(() {
-                    questionNumber++;
+                    quizebrain.nextQuestion();
                   });
                 },
                 child: Text("True"),
@@ -75,7 +74,7 @@ class _QuizzlerState extends State<Quizzler> {
                     backgroundColor: MaterialStateProperty.all(Colors.red)),
                 onPressed: () {
                   bool correctanswers =
-                      quizebrain.getCorrectAnswer(questionNumber);
+                      quizebrain.getCorrectAnswer();
                   if (correctanswers == false) {
                     print("Your answer is right");
                   } else {
@@ -83,7 +82,7 @@ class _QuizzlerState extends State<Quizzler> {
                   }
 
                   setState(() {
-                    questionNumber++;
+                    quizebrain.nextQuestion();
                   });
                 },
                 child: Text("False"),
