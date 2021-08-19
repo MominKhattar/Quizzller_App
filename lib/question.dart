@@ -1,12 +1,7 @@
-class Questions {
+class Question {
   String questionText = "";
   bool questionAnswers = true;
 
-  Questions({required String q, required bool a})
-  {
-    questionText = q;
-    questionAnswers = a;
-
-  }
+  Question(this.questionText,this.questionAnswers);
 
 }
